@@ -12,7 +12,7 @@ message.channel.fetchMessages({
  if (user) {
  const filterBy = user ? user.id : Client.user.id;
  messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
- client.channels.get(client.config.LOG_CHANNEL).send({embed: {
+ client.channels.get(message.settings.modLogChannel).send({embed: {
  "color": 11406336,
  "timestamp": `${n}`,
  "footer": {
@@ -33,7 +33,7 @@ message.channel.fetchMessages({
 });
 
 
-    client.channels.get(client.config.LOG_CHANNEL).send({embed: {
+    client.channels.get(message.settings.modLogChannel).send({embed: {
   "color": 11406336,
   "timestamp": `${n}`,
   "footer": {

@@ -12,5 +12,5 @@ const Discord = require('discord.js');
 	    .setFooter(`ID: ${member.user.id}`)
 	
 	
-	    client.channels.get(client.config.LOG_CHANNEL).send({embed});
+	    client.channels.get(settings.modLogChannel).send({embed});
 	};

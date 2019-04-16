@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
     suggestion = message.toString();
     suggestion = suggestion.replace("!suggest ", "");
 
-    client.channels.get(client.config.SUGGESTION_CHANNEL).send({embed: {
+    client.channels.get(message.settings.suggestionChannel).send({embed: {
   "description" : `${suggestion}`,
   "color": 114336,
   "footer": {

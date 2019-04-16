@@ -10,5 +10,5 @@ const Discord = require('discord.js');
 	    .setTimestamp()
 	    .setFooter(`ID: ${message.author.id}`)
 	
-	  client.channels.get(client.config.LOG_CHANNEL).send({embed});
+	  client.channels.get(settings.modLogChannel).send({embed});
 	};

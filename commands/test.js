@@ -1,6 +1,5 @@
 exports.run = async (client, message, args) => {
-    console.log(client.points.get("187784950995615753"))
-    console.log(client.points.get("373884396920504321"))
+  console.log(message.settings.modLogChannel)
   };
   
   exports.conf = {

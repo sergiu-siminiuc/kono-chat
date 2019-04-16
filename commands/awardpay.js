@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
         message.channel.send(`Hey ${user}! Here's **${amount} KC!**`);
     }
 
-    client.channels.get(client.config.LOG_CHANNEL).send({embed: {
+    client.channels.get(message.settings.modLogChannel).send({embed: {
         "color" : 9984,
         "description" : `**Awarded ${user} ${amount} KC**`,
         "timestamp" : `${n}`,

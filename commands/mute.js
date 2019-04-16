@@ -1,9 +1,7 @@
 const Discord = require('discord.js');
 	exports.run = async (client, message, args) => {
 	  const user = message.mentions.users.first();
-	  const modlog = client.channels.find('name', client.config.defaultSettings.modLogChannel);
 	  const muteRole = client.guilds.get(message.guild.id).roles.find('name', client.config.defaultSettings.mutedRole);
-	  if (!modlog) return message.reply('I cannot find a mod-log channel').catch(console.error);
 	  if (!muteRole) return message.reply('I cannot find a mute role').catch(console.error);
 	  if (message.mentions.users.size < 1) return message.reply('You must mention someone to mute them.').catch(console.error);
 	
@@ -18,7 +16,7 @@ const Discord = require('discord.js');
 	        .setTimestamp()
 	        .setFooter(`ID: ${user.id}`)
 	        .addField(`**Action commited by:**`,`${message.author}`)
-	      client.channels.get(modlog.id).send({embed}).catch(console.error);
+	      client.channels.get(message.settings.modLogChannel).send({embed}).catch(console.error);
 	    });
 	  } else {
 	    message.guild.member(user).addRole(muteRole).then(() => {
@@ -29,7 +27,7 @@ const Discord = require('discord.js');
 	        .setTimestamp()
 	        .setFooter(`ID: ${user.id}`)
 	        .addField(`**Action commited by:**`,`${message.author}`)
-	      client.channels.get(modlog.id).send({embed}).catch(console.error);
+	      client.channels.get(message.settings.modLogChannel).send({embed}).catch(console.error);
 	    });
 	  }
 	};
