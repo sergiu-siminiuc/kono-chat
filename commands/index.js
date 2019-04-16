@@ -1,6 +1,6 @@
 //checking node version...
 if (process.version.slice(1).split(".")[0] < 8) throw new Error("Node 8.0.0 or higher is required. Update Node on your system.");
-	
+
 // Load up the discord.js library
 const Discord = require("discord.js");
 // loading all the other junk I need. :)
@@ -28,6 +28,7 @@ const client = new Bot();
 const Enmap = require("enmap");
 const EnmapLevel = require("enmap-level");
 
+
 //This is where we set up all of our databases we need. I use enmap because well... its easy.
 //Points Database
 const pointProvider = new EnmapLevel({name: "points"});
@@ -41,12 +42,12 @@ client.money = new Enmap({provider: moneyProvider});
 
 (async function() {
     await client.faq.defer;
-    //all FAQs are now loaded from disk.
+	//all FAQs are now loaded from disk.
 }());
 
 (async function() {
     await client.money.defer;
-    //all money items are now loaded from disk.
+	//all money items are now loaded from disk.
 }());
 
 // Let's start by getting some useful functions
