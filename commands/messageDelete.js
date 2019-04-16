@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 	
 	module.exports = (client, message) => {
+		const settings = client.settings.get(member.guild.id);
 	  const embed = new Discord.RichEmbed()
 	    .setAuthor(`${message.author.username + "#" + message.author.discriminator}`, message.author.displayAvatarURL)
 	    .setDescription(`**Message sent by ${message.author} deleted in ${message.channel}**
